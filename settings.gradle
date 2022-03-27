@@ -8,4 +8,4 @@
  */
 
 rootProject.name = 'seahorse-url'
-include('app')
+include('seahorse')
