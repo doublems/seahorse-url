@@ -1,4 +1,4 @@
-package seahorse.url;
+package org.doublem.seahorse;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
