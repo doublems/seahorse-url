@@ -14,6 +14,11 @@ public class Base62 {
             'V', 'W', 'X', 'Y', 'Z',
     };
 
+    /**
+     * Convert decimal to base62
+     * @param decimalNumber
+     * @return base62 in string
+     */
     public static String execute(int decimalNumber) {
 
         int quotient = decimalNumber;
@@ -33,6 +38,11 @@ public class Base62 {
         return result.toString();
     }
 
+    /**
+     * Convert base62 to decimal
+     * @param base62Number
+     * @return decimal in int
+     */
     public static int execute(String base62Number) {
 
         char[] arr = base62Number.toCharArray();
@@ -41,7 +51,13 @@ public class Base62 {
         for (int i = 0; i < arr.length; i++) {
             int exponent = arr.length - i - 1;
 
-            result += (int) Math.pow(62, exponent) * Arrays.binarySearch(codes, arr[i]);
+            int value = Arrays.binarySearch(codes, arr[i]);
+
+            if(value < 0){
+                throw new IllegalArgumentException(CustomError.NO_BASE62_CODE.toString());
+            }
+
+            result += (int) Math.pow(62, exponent) * value;
         }
 
         return result;
