@@ -33,19 +33,19 @@ jobs:
     - name: Run Tests
       run: ./gradlew test
 
-    - name: Publish Unit Test Results
+    - name: [Seahourse] Unit Test Results
       uses: EnricoMi/publish-unit-test-result-action@v1
       if: always()
       with:
-        files: build/test-results/**/*.xml
+        files: seahourse/build/test-results/**/*.xml
 
     - name: Make Test Coverage
       run: ./gradlew jacocoTestReport
 
-    - name: Jacoco reports (Test Coverage)
+    - name: [Seahourse] Jacoco reports (Test Coverage)
       uses: actions/upload-artifact@v2.3.1
       with:
         name: jacoco-reports
-        path: build/reports/tests/test
+        path: seahourse/build/reports/tests/test
 
 
