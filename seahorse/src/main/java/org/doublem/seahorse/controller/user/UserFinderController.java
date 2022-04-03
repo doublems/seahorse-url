@@ -15,7 +15,6 @@ public class UserFinderController {
 
     @GetMapping("users/{id}")
     User getUser(@PathVariable("id") String id){
-        return userFinderService.searchUser(id);
-    };
-
+        return userFinderService.searchUser(Long.parseLong(id));
+    }
 }
